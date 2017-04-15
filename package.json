@@ -1,0 +1,39 @@
+{
+  "name": "ng-starter",
+  "version": "1.0.0",
+  "description": "A simple starter for angularJS projects",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuelmanez/ng-starter.git"
+  },
+  "keywords": [
+    "starter",
+    "angularjs",
+    "angular"
+  ],
+  "author": "Manuel Máñez Ramón",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manuelmanez/ng-starter/issues"
+  },
+  "homepage": "https://github.com/manuelmanez/ng-starter#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-less": "^3.3.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-uglify": "^2.1.2",
+    "gulp-usemin": "^0.3.28",
+    "gulp-webserver": "^0.9.1",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
+  }
+}
