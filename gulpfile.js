@@ -104,7 +104,8 @@ gulp.task('usemin', ['less-dev'], function() {
   gulp.src('app/index.html')
     .pipe(usemin({
       css: [cleancss(), rev()],
-      js: [ngannotate(), uglify(), rev()]
+      js: [ngannotate(), uglify(), rev()],
+      png: [rev()]
     }))
     .pipe(notify({
       title: "Minify css - Uglify js",
@@ -112,6 +113,16 @@ gulp.task('usemin', ['less-dev'], function() {
       onLast: true
     }))
     .pipe(gulp.dest('dist/'))
+})
+
+gulp.task('favicon', function() {
+  gulp.src('app/favicon.*')
+    .pipe(notify({
+      title: "Copy favicon",
+      message: "task completed",
+      onLast: true
+    }))
+    .pipe(gulp.dest('dist/'));
 })
 
 /*
@@ -134,5 +145,5 @@ gulp.task('dev', ['webserver-dev'], function() {
  * 6. copy all fonts to dist/fonts
  */
 gulp.task('dist', ['clean', 'usemin'], function() {
-  gulp.start('imagemin', 'copyfonts');
+  gulp.start('imagemin', 'copyfonts', 'favicon');
 });
