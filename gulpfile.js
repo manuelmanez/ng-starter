@@ -10,6 +10,7 @@ var cleancss = require('gulp-clean-css');
 var rev = require('gulp-rev');
 var usemin = require('gulp-usemin');
 var notify = require('gulp-notify');
+var ngannotate = require('gulp-ng-annotate');
 
 /*
  * precompile less
@@ -103,7 +104,7 @@ gulp.task('usemin', ['less-dev'], function() {
   gulp.src('app/index.html')
     .pipe(usemin({
       css: [cleancss(), rev()],
-      js: [uglify(), rev()]
+      js: [ngannotate(), uglify(), rev()]
     }))
     .pipe(notify({
       title: "Minify css - Uglify js",
