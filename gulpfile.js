@@ -25,7 +25,7 @@ gulp.task('less-dev', ['jshint'], function() {
  * linter javascript files
  */
 gulp.task('jshint', function() {
-  return gulp.src('app/**/*.js')
+  return gulp.src(['app/src/**/*.js', 'app/assets/scripts/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(jshint.reporter('fail'))
@@ -41,11 +41,11 @@ gulp.task('jshint', function() {
  * create server and open browser
  */
 gulp.task('webserver-dev', ['less-dev'], function() {
-  gulp.src('.')
+  gulp.src('app')
     .pipe(webserver({
       host: 'localhost',
       port: 8000,
-      open: 'http://localhost:8000/app',
+      open: true,
       livereload: true,
       directoryListing: false
     }))
@@ -85,8 +85,8 @@ gulp.task('clean', function() {
  * Copy all fonts to dist/fonts
  */
 gulp.task('copyfonts', function() {
-  gulp.src(['bower_components/bootstrap/fonts/**/*',
-      'bower_components/font-awesome/fonts/**/*'
+  gulp.src(['app/assets/bower_components/bootstrap/fonts/**/*',
+      'app/assets/bower_components/font-awesome/fonts/**/*'
     ])
     .pipe(notify({
       title: "Copy fonts",
@@ -115,6 +115,9 @@ gulp.task('usemin', ['less-dev'], function() {
     .pipe(gulp.dest('dist/'))
 })
 
+/*
+ * copy favicon to dist folder
+ */
 gulp.task('favicon', function() {
   gulp.src('app/favicon.*')
     .pipe(notify({
@@ -132,7 +135,8 @@ gulp.task('favicon', function() {
  */
 gulp.task('dev', ['webserver-dev'], function() {
   gulp.watch('app/assets/styles/less/**/*.less', ['less-dev']);
-  gulp.watch('app/**/*.js', ['jshint']);
+  gulp.watch('app/src/**/*.js', ['jshint']);
+  gulp.watch('app/assets/scripts/**/*.js', ['jshint']);
 });
 
 /*
