@@ -3,7 +3,7 @@
 describe('Controller: homeCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('myApp'));
+  beforeEach(module('==ng-starter=='));
 
   var scope, homeCtrl;
 

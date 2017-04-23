@@ -1,1 +1,1 @@
-angular.module('myApp', ['ui.router', 'ngResource']);
+angular.module('==ng-starter==', ['ui.router', 'ngResource']);

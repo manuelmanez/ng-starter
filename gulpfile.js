@@ -12,6 +12,8 @@ var usemin = require('gulp-usemin');
 var notify = require('gulp-notify');
 var ngannotate = require('gulp-ng-annotate');
 var shell = require('gulp-shell');
+var replace = require('gulp-string-replace');
+var prompt = require('gulp-prompt');
 
 /*
  * precompile less
@@ -153,4 +155,31 @@ gulp.task('dist', ['clean', 'usemin'], function() {
   gulp.start('imagemin', 'copyfonts', 'favicon');
 });
 
+/*
+ * Start unit tests
+ */
 gulp.task('utest', shell.task('karma start karma.conf.js'));
+
+gulp.task('go', function() {
+    var files = [
+      'app/src/app.js',
+      'app/src/app.routes.js',
+      'app/index.html',
+      'app/src/home/home.controller.js',
+      'app/src/home/home.test.js'
+    ]
+
+    gulp.src('app/')
+      .pipe(prompt.prompt(
+        {
+          type: 'input',
+          name: 'project',
+          message: 'Enter project name in lowercase'
+        },
+        function(res) {
+          return gulp.src(files, {base: "./"})
+            .pipe(replace('==ng-starter==', res.project+'App'))
+            .pipe(gulp.dest('./'));
+        }
+      ));
+});

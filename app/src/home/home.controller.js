@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('myApp')
+  .module('==ng-starter==')
   .controller('homeCtrl', ['$scope', homeCtrl]);
 
 function homeCtrl($scope) {

@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('myApp').config(routes);
+angular.module('==ng-starter==').config(routes);
 
 function routes($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider

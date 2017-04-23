@@ -38,13 +38,15 @@ https://github.com/manuelmanez/ng-starter
   ``npm install -g karma-cli``
 
 4. Install local dependencies form command line:
-
   ``$ npm install``   
   ``$ bower install``
 
-5. Copy your favicon in app/images folder and rename it to favicon.png
+5. Rename main module from command line. Write project name in lowercase when prompt:
+  ``$ gulp go``
 
-6. Enjoy coding!
+6. Copy your favicon in app/images folder and rename it to favicon.png
+
+7. Enjoy coding!
 
 ## Usage
 ##### General commands:
