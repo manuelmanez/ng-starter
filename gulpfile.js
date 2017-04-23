@@ -11,6 +11,7 @@ var rev = require('gulp-rev');
 var usemin = require('gulp-usemin');
 var notify = require('gulp-notify');
 var ngannotate = require('gulp-ng-annotate');
+var shell = require('gulp-shell');
 
 /*
  * precompile less
@@ -151,3 +152,5 @@ gulp.task('dev', ['webserver-dev'], function() {
 gulp.task('dist', ['clean', 'usemin'], function() {
   gulp.start('imagemin', 'copyfonts', 'favicon');
 });
+
+gulp.task('utest', shell.task('karma start karma.conf.js'));

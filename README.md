@@ -23,20 +23,28 @@ ng-starter is a starter kit to develop angularJS projects. These are the main fe
   * Uglify javascript
   * Revisioning
   * Copy fonts
+* Routing using UI-Router
+* Jasmine and Karma unit testing
 
 ## Install
 
-1. clone or download the project from:
+1. Install node and npm in your computer
+
+2. Clone or download the project from:
 https://github.com/manuelmanez/ng-starter
 
-2. Install dependencies form command line:
+3. Install global dependencies from command line:
+  ``npm install -g gulp``
+  ``npm install -g karma-cli``
+
+4. Install local dependencies form command line:
 
   ``$ npm install``   
   ``$ bower install``
 
-3. Copy your favicon in app/images folder and rename it to favicon.png
+5. Copy your favicon in app/images folder and rename it to favicon.png
 
-4. Enjoy coding!
+6. Enjoy coding!
 
 ## Usage
 ##### General commands:
@@ -54,6 +62,7 @@ https://github.com/manuelmanez/ng-starter
   5. compress images and save in dist/images folder
   6. copy all fonts to dist/fonts
 
+* $ `gulp utest`: Run unit tests
 
 ##### Particular commands:
 * `$ gulp less-dev`: Precompile less files in development folder
